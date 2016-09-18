@@ -18,6 +18,9 @@ abstract class GildedItem {
         if (item.name.equals(Catalogue.AGED_BRIE)) {
             return new AgedBrieItem(item);
         }
+        if (item.name.startsWith("Conjured ")) {
+            return new ConjuredItem(item);
+        }
         return new StandardItem(item);
     }
 
@@ -33,6 +36,15 @@ abstract class GildedItem {
         return item.quality;
     }
 
+    protected final void decreaseQuality(int amount) {
+        if (amount < 1) {
+            throw new IllegalArgumentException("amount must be positive");
+        }
+        for (int i = 0; i < amount; i++) {
+            decreaseQuality();
+        }
+    }
+    
     protected final void decreaseQuality() {
         if (item.quality > 0) {
             item.quality -= 1;
