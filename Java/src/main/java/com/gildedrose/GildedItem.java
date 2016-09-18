@@ -12,6 +12,9 @@ abstract class GildedItem {
         if (item.name.equals(Catalogue.SULFURAS)) {
             return new LegendaryItem(item);
         }
+        if (item.name.equals(Catalogue.BACKSTAGE_PASSES)) {
+            return new BackstagePassItem(item);
+        }
         return new StandardItem(item);
     }
 
@@ -29,8 +32,8 @@ abstract class GildedItem {
         }
     }
     
-    protected final boolean hasReachedSellByDate() {
-        return item.sellIn <= 0;
+    protected final boolean hasPassedSellByDate() {
+        return item.sellIn < 0;
     }
     
 }

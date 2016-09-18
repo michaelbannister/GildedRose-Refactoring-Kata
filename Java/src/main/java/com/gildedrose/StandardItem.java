@@ -10,24 +10,12 @@ public class StandardItem extends GildedItem {
             decreaseQuality(item);
         } else if (increasesInQualityOverTime(item)) {
             increaseQuality(item);
-
-            if (item.name.equals(Catalogue.BACKSTAGE_PASSES)) {
-                if (item.sellIn < 11) {
-                    increaseQuality(item);
-                }
-
-                if (item.sellIn < 6) {
-                    increaseQuality(item);
-                }
-            }
         }
 
         item.sellIn -= 1;
 
         if (isPastSellByDate(item)) {
-            if (completelyExpiresOnSellByDate(item)) {
-                item.quality = 0;
-            } else if (increasesInQualityOverTime(item)) {
+            if (increasesInQualityOverTime(item)) {
                 increaseQuality(item);
             } else if (decreasesInQualityOverTime(item)) {
                 decreaseQuality(item);
@@ -57,9 +45,5 @@ public class StandardItem extends GildedItem {
 
     private boolean increasesInQualityOverTime(Item item) {
         return item.name.equals(Catalogue.AGED_BRIE) || item.name.equals(Catalogue.BACKSTAGE_PASSES);
-    }
-
-    private boolean completelyExpiresOnSellByDate(Item item) {
-        return item.name.equals(Catalogue.BACKSTAGE_PASSES);
     }
 }
