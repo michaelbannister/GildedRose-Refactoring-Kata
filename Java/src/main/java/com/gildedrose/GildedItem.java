@@ -15,10 +15,19 @@ abstract class GildedItem {
         if (item.name.equals(Catalogue.BACKSTAGE_PASSES)) {
             return new BackstagePassItem(item);
         }
+        if (item.name.equals(Catalogue.AGED_BRIE)) {
+            return new AgedBrieItem(item);
+        }
         return new StandardItem(item);
     }
 
     abstract void age();
+
+    void age(int days) {
+        for (int i = 0; i < days; i++) {
+            age();
+        }
+    }
 
     public int getQuality() {
         return item.quality;

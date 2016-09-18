@@ -49,7 +49,7 @@ public class BackstagePassItemTest {
         item.age();
         item.age();
 
-        assertThat(item.getQuality()).isEqualTo(-2);
+        assertThat(item.item.sellIn).isEqualTo(-2);
     }
 
 }
