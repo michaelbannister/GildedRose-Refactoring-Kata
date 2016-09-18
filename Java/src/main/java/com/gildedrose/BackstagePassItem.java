@@ -22,10 +22,4 @@ public class BackstagePassItem extends GildedItem {
             increaseQuality();
         }
     }
-    
-    void age(int days) {
-        for (int i = 0; i < days; i++) {
-            age();
-        }
-    }
 }

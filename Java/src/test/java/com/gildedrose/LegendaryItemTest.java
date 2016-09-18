@@ -12,6 +12,6 @@ public class LegendaryItemTest {
         
         item.age();
         
-        assertThat(item.item.quality).isEqualTo(80);
+        assertThat(item.getQuality()).isEqualTo(80);
     }
 }
