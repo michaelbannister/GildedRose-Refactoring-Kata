@@ -27,7 +27,7 @@ public class TexttestFixture {
                 out.println(item);
             }
             out.println();
-            app.updateQuality();
+            app.ageItems();
         }
     }
 
